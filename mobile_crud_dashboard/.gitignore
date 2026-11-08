@@ -1,0 +1,4 @@
+node_modules/
+dashboard.db
+.env
+.DS_Store

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> KenStockFlow </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">S</span><span>StockFlow</span></div>
+      <p class="nav-label">MENU</p>
+      <a class="nav-link active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a class="nav-link" href="#products">□ <span>Products</span></a>
+      <div class="sidebar-note">Inventory management<br><small>Express · SQLite</small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">OVERVIEW</p>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="profile"><span class="avatar">A</span><span>Admin</span></div>
+      </header>
+
+      <section class="welcome">
+        <div><p class="eyebrow light">STOCK MANAGEMENT</p><h2>Welcome back!</h2><p>Manage your products in one simple place.</p></div>
+        <div class="welcome-icon">▦</div>
+      </section>
+
+      <section class="stats" aria-label="Dashboard summary">
+        <article class="stat-card"><div class="stat-top"><span>Total Products</span><span class="stat-icon purple">□</span></div><strong id="totalProducts">0</strong><small>Products recorded</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Total Stock</span><span class="stat-icon blue">▤</span></div><strong id="totalStock">0</strong><small>Units in inventory</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Inventory Value</span><span class="stat-icon green">₱</span></div><strong id="inventoryValue">₱0.00</strong><small>Estimated total value</small></article>
+      </section>
+
+      <section class="panel" id="products">
+        <div class="panel-heading">
+          <div><p class="eyebrow">INVENTORY</p><h2>Product Management</h2></div>
+          <button class="primary-btn" id="addButton">＋ Add Product</button>
+        </div>
+        <div class="toolbar"><input id="searchInput" type="search" placeholder="Search product or category..." aria-label="Search products" /><span id="resultCount">0 items</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>PRODUCT</th><th>CATEGORY</th><th>QUANTITY</th><th>PRICE</th><th>ACTION</th></tr></thead>
+            <tbody id="productRows"><tr><td colspan="5" class="empty">Loading products...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+      <footer>StockFlow Dashboard · Student CRUD Project</footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <form class="modal" id="productForm">
+      <div class="modal-heading"><div><p class="eyebrow">PRODUCT DETAILS</p><h2 id="modalTitle">Add Product</h2></div><button type="button" class="close-btn" id="closeModal" aria-label="Close">×</button></div>
+      <label>Product name<input id="name" required maxlength="80" placeholder="e.g. Wireless Mouse" /></label>
+      <label>Category<input id="category" required maxlength="60" placeholder="e.g. Accessories" /></label>
+      <div class="form-grid"><label>Quantity<input id="quantity" type="number" min="0" step="1" required value="0" /></label><label>Price (₱)<input id="price" type="number" min="0" step="0.01" required value="0" /></label></div>
+      <p class="form-error" id="formError"></p>
+      <div class="modal-actions"><button type="button" class="secondary-btn" id="cancelButton">Cancel</button><button class="primary-btn" type="submit">Save Product</button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
