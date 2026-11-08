@@ -1,4 +1,4 @@
-# StockFlow — Mobile CRUD Dashboard
+# StockFlow — CRUD Dashboard
 
 A responsive inventory dashboard built with **Express.js**, **SQLite**, HTML, CSS, and JavaScript. It works on a phone browser and a desktop browser.
 
